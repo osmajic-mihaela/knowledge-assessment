@@ -1,0 +1,36 @@
+<div class="parent">
+    <div class="test-container">
+        <h1>{{quiz.title}}</h1>
+
+        <h4>{{quiz.notes}}</h4>
+
+        <div *ngFor="let question of quiz.questions; let i = index">
+            <h3>Pitanje {{i+1}}</h3>
+            <p>{{question.question}}</p>
+
+            <div>
+                <div class="underline-input" *ngIf="getQuestionType(question.id)">
+                    <input type="text" [(ngModel)]="student_answer[i]" placeholder="Type here">
+                </div>
+                <div *ngIf="getQuestionType2(question.id)">
+                    <ul class="options" >
+                        <li class="option" *ngFor="let answer of question.other_choice_answer" >
+                            <label>
+                                <input type="radio" [(ngModel)]="student_answer[i]" [value]="answer"> {{answer}}
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="underline-input" *ngIf=" student_quiz.teacher_points_and_notes!=undefined  ">
+                <p style="color: crimson">{{getTeahcerComment(i)[0]}}/{{question.points}} - {{getTeahcerComment(i)[1]}}</p>
+            </div>
+        </div>
+
+        <button (click)="eva()" >Submit</button>
+        <h2 *ngIf=" student_quiz.teacher_points_and_notes!=undefined" style="color: crimson; border: 3px">Bodovi:{{student_quiz.sum_points}}</h2>
+
+    </div>
+    <mat-progress-bar class="progres_bar" *ngIf="isEvaluating" mode="indeterminate"></mat-progress-bar>
+</div>

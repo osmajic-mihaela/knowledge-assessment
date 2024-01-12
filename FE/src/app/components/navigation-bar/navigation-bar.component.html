@@ -1,0 +1,73 @@
+<div>
+  <div class ="navigation">
+    <div class="logo-container"  >
+      <button class="logo" >
+        <ion-icon class="toggle" (click)="menuToggle()" name="menu-outline"></ion-icon>
+      </button>
+      <div class="logo-text">Škola</div>
+      <button *ngIf="logedIn" class="logo" style="margin-left: 40px; border-right-radius: 15px"  >
+        <ion-icon name="finger-print-outline"></ion-icon>
+      </button>
+    </div>
+    <ul *ngIf="userRole==='' || userRole==undefined" class="items">
+      <li *ngFor="let data of publicNavData"  class="list" >
+        <b></b>
+        <b></b>
+        <a (click)="clicked(data.num)" [routerLink]="[data.routeLink]">
+        <span class="icon">
+          <ion-icon name={{data.icon}}></ion-icon>
+        </span>
+          <span class="title">{{data.label}}</span>
+        </a>
+      </li>
+    </ul>
+
+    <ul *ngIf="userRole==='STUDENT'" class="items">
+      <li *ngFor="let data of studentNavData" class="list" >
+        <b></b>
+        <b></b>
+        <a (click)="clicked(data.num)" [routerLink]="[data.routeLink]">
+        <span class="icon">
+          <ion-icon name={{data.icon}}></ion-icon>
+        </span>
+          <span class="title">{{data.label}}</span>
+        </a>
+      </li>
+      <li class="list" >
+        <b></b>
+        <b></b>
+        <a (click)="onSignOut()" >
+        <span class="icon">
+          <ion-icon name="log-out-outline"></ion-icon>
+        </span>
+          <span class="title">Odjavi se</span>
+        </a>
+      </li>
+    </ul>
+
+    <ul *ngIf="userRole==='TEACHER'" class="items">
+      <li *ngFor="let data of teacherNavData"  class="list" >
+        <b></b>
+        <b></b>
+        <a (click)="clicked(data.num)" [routerLink]="[data.routeLink]">
+        <span class="icon">
+          <ion-icon name={{data.icon}}></ion-icon>
+        </span>
+          <span class="title">{{data.label}}</span>
+        </a>
+      </li>
+      <li class="list" >
+        <b></b>
+        <b></b>
+        <a (click)="onSignOut()" >
+        <span class="icon">
+          <ion-icon name="log-out-outline"></ion-icon>
+        </span>
+          <span class="title">Odjavi se</span>
+        </a>
+      </li>
+    </ul>
+
+
+  </div>
+</div>

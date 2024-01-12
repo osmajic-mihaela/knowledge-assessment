@@ -1,0 +1,48 @@
+<div class="title-container">
+    <h1 class="title">Dodaj pitanja</h1>
+</div>
+
+<mat-form-field appearance="fill" class="input-create-center">
+    <mat-label>Pitanje:</mat-label>
+    <input matInput [(ngModel)]="question.question" placeholder="Question" >
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="input-create-center">
+    <mat-label>Tačan odgovor:</mat-label>
+    <input matInput [(ngModel)]="question.correct_answer" placeholder="Answer"    type="text">
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="input-create-center">
+    <mat-label>Bodovi:</mat-label>
+    <input matInput [(ngModel)]="question.points" placeholder="Point"   type="number">
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="input-create-center">
+    <mat-label>Izbaeri tip pitanja:</mat-label>
+    <mat-select [(value)]="question.type" >
+        <mat-option value="FREE_ANSWER">Slobodan odgovor</mat-option>
+        <mat-option value="MULTIPLE_CHOICE">Višestruki izbori</mat-option>
+    </mat-select>
+</mat-form-field>
+
+<div *ngIf="question.type == 'MULTIPLE_CHOICE'" >
+    <!-- Add as many fields as needed -->
+    <mat-form-field  appearance="fill" class="input-create-center">
+        <mat-label>Netačan odgovor 1:</mat-label>
+        <input matInput [(ngModel)]="wrong_answer1" placeholder="Answer"    type="text">
+    </mat-form-field>
+
+    <mat-form-field  appearance="fill" class="input-create-center">
+        <mat-label>Netačan odgvor 2:</mat-label>
+        <input matInput [(ngModel)]="wrong_answer2" placeholder="Answer"    type="text">
+    </mat-form-field>
+
+    <mat-form-field  appearance="fill" class="input-create-center">
+        <mat-label>Netačan odgvor 3:</mat-label>
+        <input matInput [(ngModel)]="wrong_answer3" placeholder="Answer"    type="text">
+    </mat-form-field>
+</div>
+
+
+<button mat-raised-button color="primary" class="button-center" (click)="addQuestion()">Dodaj</button>
+
