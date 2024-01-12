@@ -1,0 +1,26 @@
+
+<div class="parent">
+    <div class="test-container">
+        <h1>{{selectedRes.quiz?.title}}</h1>
+
+        <h4>{{selectedRes.quiz?.notes}}</h4>
+
+        <div *ngFor="let question of selectedRes.quiz?.questions; let i = index">
+            <h3>Pitanje {{i+1}}</h3>
+            <p>{{question.question}}</p>
+
+
+            <div class="underline-input" >
+                <label>Odgovor studenta: {{getValueByIndex(i)}}</label>
+            </div>
+
+
+            <div class="underline-input" *ngIf=" selectedRes.teacher_points_and_notes!=undefined  ">
+                <p style="color: crimson">{{getTeahcerComment(i)[0]}}/{{question.points}} - {{getTeahcerComment(i)[1]}}</p>
+            </div>
+        </div>
+
+        <h2 *ngIf=" selectedRes.teacher_points_and_notes!=undefined" style="color: crimson; border: 3px">Your points:{{selectedRes.sum_points}}</h2>
+
+    </div>
+</div>

@@ -1,0 +1,32 @@
+.parent{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container {
+    display: flex;
+}
+
+.result-card-container {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    height: 800px;
+    overflow-y: scroll;
+}
+
+.result-card {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.done-quiz-container {
+    flex: 1;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.fill_empty{
+    width: 815px;
+}

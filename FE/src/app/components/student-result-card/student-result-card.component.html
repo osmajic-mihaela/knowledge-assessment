@@ -1,0 +1,47 @@
+<div class="card">
+    <div class="additional">
+        <div class="user-card">
+            <div class="level center">
+                Rezultat
+            </div>
+            <div class="points center" (click)="viewStudentQuizResult()">
+               Pogledaj test
+            </div>
+            <div class="center">
+
+            </div>
+        </div>
+        <div class="more-info">
+            <h1>Informacije o studentu</h1>
+            <div class="coords parent">
+                <div class="title">Ime:</div>
+                <i class="fa fa-people"></i>
+                <div class="right-t">{{result.student.name}}</div>
+            </div>
+            <div class="coords parent">
+                <div class="title">Prezime:</div>
+                <i class="fa fa-people"></i>
+                <div class="right-t">{{result.student.surname}}</div>
+            </div>
+
+        </div>
+    </div>
+    <div class="general">
+        <h1>Rezultati studenta</h1>
+        <div>
+            <div class="info" >
+                <span class="color-t">Bodovi:</span>
+                <span class="right-t">{{result.sum_points}}</span>
+            </div>
+            <div class="info" >
+                <span class="color-t">Broj tačnih odgovora:</span>
+                <span class="right-t">{{getNumberOfCorrect()}}</span>
+            </div>
+            <div class="info">
+                <span class="color-t">Procenat tačnih odgovora:</span>
+                <span class="right-t">{{getPercentageOfCorrect()| number:'1.2-2'}}%</span>
+            </div>
+            <span class="more">Prevuci mišem za više detalja</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="parent">
+    <div class="test-container">
+        <h1>{{quiz.title}}</h1>
+
+        <h4>{{quiz.notes}}</h4>
+
+        <div *ngFor="let question of quiz.questions; let i = index">
+            <h3>Question {{i+1}}</h3>
+            <p>{{question.question}}</p>
+            <div class="underline-input" *ngIf="getQuestionType(question.id)">
+                <input disabled="true" type="text"  placeholder="Type here">
+            </div>
+            <div *ngIf="getQuestionType2(question.id)">
+                <ul class="options" >
+                    <li class="option" *ngFor="let optionSet of question.other_choice_answer" >
+                        <label>
+                            <input disabled="true" type="radio"  [value]="optionSet"> {{optionSet}}
+                        </label>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <button style="margin-top: 0.5%" (click)="backToCalendar()" >Nazad</button>
+</div>
+
+

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="container-f">
+    <mat-stepper  #stepper >
+      <mat-step [editable]="true">
+        <ng-template matStepLabel>Opšte informacije:</ng-template>
+        <app-general-quiz-info-form [quiz]="quiz"></app-general-quiz-info-form>
+        <div align="end">
+          <button mat-flat-button color="primary" (click)="nextToQuestions(stepper)">Dalje</button>
+        </div>
+
+      </mat-step>
+
+      <mat-step [editable]="true">
+        <ng-template matStepLabel>Test pitanja</ng-template>
+        <app-question-quiz-form [quiz]="quiz"></app-question-quiz-form>
+        <div align="end">
+          <button mat-flat-button color="primary" (click)="nextToFinish(stepper)">Dalje</button>
+        </div>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Gotovo</ng-template>
+        <div class="center-text">
+          <p>Uspešno ste kreirali test.</p>
+        </div>
+        <div align="end">
+          <button mat-flat-button color="success" >Gotovo</button>
+        </div>
+      </mat-step>
+
+    </mat-stepper>
+
+  </div>
+</div>

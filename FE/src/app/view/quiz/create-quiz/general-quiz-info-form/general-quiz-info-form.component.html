@@ -1,0 +1,55 @@
+<div class="title-container">
+  <h1 class="title">Osnovne informacije</h1>
+</div>
+
+<mat-form-field appearance="fill" class="input-create-center">
+  <mat-label>Naslov:</mat-label>
+  <input matInput [(ngModel)]="quiz.title" placeholder="Naslov" required>
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="input-create-center">
+  <mat-label>Predmet:</mat-label>
+  <input matInput [(ngModel)]="quiz.subject" placeholder="Predmet" required>
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="input-create-center">
+  <mat-label>Napomena za učenike:</mat-label>
+  <input matInput [(ngModel)]="quiz.notes" placeholder="Napomena za studente" required>
+</mat-form-field>
+
+
+<div class="input-create-center">
+  <div>
+    <mat-form-field appearance="fill" class="input-time">
+      <mat-label>Izaberi datum</mat-label>
+      <input matInput [matDatepicker]="pickerDate" [(ngModel)] = "quiz.schedule_date">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="pickerDate"></mat-datepicker-toggle>
+      <mat-datepicker #pickerDate></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <mat-form-field  appearance="fill" class="input-time">
+    <mat-label>Izaberi vreme</mat-label>
+    <input type="text"
+           matInput
+           [ngxTimepicker]="pickerTime1"
+           readonly
+           [(ngModel)] = "quiz.schedule_time"
+           [format]="24"
+    />
+  <ngx-material-timepicker #pickerTime1></ngx-material-timepicker>
+
+  </mat-form-field>
+  <mat-form-field  appearance="fill" class="input-time">
+    <mat-label>Izaberi vreme završetka</mat-label>
+    <input type="text"
+           matInput
+           [ngxTimepicker]="pickerTime2"
+           readonly
+           [(ngModel)] = "quiz.schedule_end_time"
+           [format]="24"
+    />
+    <ngx-material-timepicker #pickerTime2></ngx-material-timepicker>
+  </mat-form-field>
+</div>
+

@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="result-card-container">
+        <div *ngFor="let result of student_results" class="result-card">
+            <app-student-result-card [result]="result" (messageEvent)="receiveMessage($event)"></app-student-result-card>
+        </div>
+    </div>
+    <div *ngIf="proba.quiz_id != '' && proba.quiz_id!= undefined" class="done-quiz-container">
+        <app-student-done-quiz [selectedRes]="selectedRes"></app-student-done-quiz>
+    </div>
+    <div *ngIf="proba.quiz_id == '' || proba.quiz_id== undefined" class="fill_empty"></div>
+</div>
