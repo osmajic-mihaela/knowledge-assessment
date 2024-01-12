@@ -14,7 +14,7 @@ Full stack academic SOTIS project. A web application for managing student quizze
 - Python 
 
 ## Starting the Application
-To start the Flask application, make sure you have a Postgres database ready. In the application config.py file set up username and password for your postres user (you can make a new one or use the default user posgtres). After starting the application, it will be available on default Flask port 5000. 
+To start the Flask application, make sure you have a Postgres database ready. In the application config.py file set up username and password for your postgres user (you can make a new one or use the default user posgtres). After starting the application, it will be available on default Flask port 5000. 
 
 For the Angular application install all dependecies (npm install) and have the backend running.
 
